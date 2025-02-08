@@ -29,7 +29,7 @@ jobs:
       - name: Run Flask API in background
         run: |
           python API.py &
-          sleep 3  # Wait for Flask to start
+          sleep 5  # Wait for Flask to start
 
       - name: Run tests
         run: pytest tests/
