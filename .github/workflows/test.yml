@@ -1,0 +1,42 @@
+name: Run API Tests
+
+on:
+  push:
+    branches:
+      - main  # Runs tests on push to main
+  pull_request:
+    branches:
+      - main  # Runs tests on PRs to main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Flask API in background
+        run: |
+          python API.py &
+          sleep 3  # Wait for Flask to start
+
+      - name: Run tests
+        run: pytest tests/
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: reports/
