@@ -41,3 +41,16 @@ docker run -d --name api-container --network test-network -p 5001:5000 my-api
 ```sh
 curl -X POST http://127.0.0.1:5001/transform -H "Content-Type: application/json" -d '{"text": "hello"}'
 ```
+
+## 📌 ** How to Run tests in Docker**
+to run tests **inside Docker**, use:
+
+### **  Build the Test Image**
+```sh
+docker build -t my-api-test -f Dockerfiletest .
+```
+
+### ** Run Tests in a Separate Container**
+```sh
+docker run --rm --network test-network my-api-testß
+```
