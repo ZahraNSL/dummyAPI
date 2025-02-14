@@ -14,4 +14,4 @@ def transform_text():
     return jsonify({'transformed_text': transformed_text})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True) # allows Flask to accept connections from Docker and external users

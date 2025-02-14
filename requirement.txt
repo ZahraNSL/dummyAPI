@@ -2,3 +2,5 @@ pytest
 requests
 flask
 flask-cors
+responses
+pytest-xdist
