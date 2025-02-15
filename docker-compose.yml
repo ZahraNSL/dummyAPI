@@ -22,8 +22,7 @@ services:
     depends_on:
       api:
         condition: service_healthy
-    networks:
-      - my-network
+    network_mode: "service:api"
 
 networks:
   my-network:
