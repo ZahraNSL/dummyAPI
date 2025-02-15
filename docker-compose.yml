@@ -5,16 +5,23 @@ services:
     build: .
     container_name: api-container
     ports:
-      - "5001:5000"  # Expose API on port 5001
+      - "5001:5000"
     networks:
       - my-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000"]
+      interval: 5s
+      retries: 5
+      start_period: 10s
+      timeout: 3s
 
   tests:
     build: .
     container_name: test-container
     command: pytest
     depends_on:
-      - api
+      api:
+        condition: service_healthy
     networks:
       - my-network
 
