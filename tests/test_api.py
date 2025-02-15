@@ -1,7 +1,7 @@
 import pytest
 import requests
 
-BASE_URL = "http://api:5000"
+BASE_URL = "http://localhost:5001"
 
 def test_valid_text():
     response = requests.post(f"{BASE_URL}/transform", json={"text": "hello"})
