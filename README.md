@@ -19,7 +19,7 @@ python API.py
 ```sh
 curl -X POST http://127.0.0.1:5000/transform -H "Content-Type: application/json" -d '{"text": "hello"}'
 ```
-## 📌 ** How to Run the API with Docker**
+## 📌 **How to Run the API with Docker**
 If you prefer running the API **inside Docker**, follow these steps:
 
 ### **  Build the Docker Image**
@@ -42,7 +42,7 @@ docker run -d --name api-container --network test-network -p 5001:5000 my-api
 curl -X POST http://127.0.0.1:5001/transform -H "Content-Type: application/json" -d '{"text": "hello"}'
 ```
 
-## 📌 ** How to Run tests in Docker**
+## 📌 **How to Run tests in Docker**
 to run tests **inside Docker**, use:
 
 ### **  Build the Test Image**
@@ -52,5 +52,13 @@ docker build -t my-api-test -f Dockerfiletest .
 
 ### ** Run Tests in a Separate Container**
 ```sh
-docker run --rm --network test-network my-api-testß
+docker run --rm --network test-network my-api-test
+```
+
+## 📌 **Using docker-compose**
+Instead of running everything manually, you can use **docker-compose.yml**.
+
+### **Start API & Tests**
+```sh
+docker-compose up --build
 ```

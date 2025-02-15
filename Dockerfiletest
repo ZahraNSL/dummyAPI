@@ -6,4 +6,4 @@ COPY . .
 RUN pip install --no-cache-dir -r requirement.txt
 
 # Wait for API to start before running tests
-CMD ["sh", "-c", "sleep 5 && pytest"]
+CMD ["sh", "-c", "sleep 100 && pytest"]

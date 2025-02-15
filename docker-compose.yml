@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  api:
+    build: .
+    container_name: api-container
+    ports:
+      - "5001:5000"  # Expose API on port 5001
+    networks:
+      - my-network
+
+  tests:
+    build: .
+    container_name: test-container
+    command: pytest
+    depends_on:
+      - api
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
