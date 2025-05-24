@@ -1,10 +1,10 @@
-# 🚀 API Testing with Docker & Pytest
+# API Testing with Docker & Pytest
 
 This project contains an **API** built with Flask and tested using **Pytest** inside **Docker containers**. It includes **Docker networking** to run the API and test containers separately.
 
 ---
 
-## 📌 **How to Run the API (Without Docker)**
+## **How to Run the API (Without Docker)**
 If you want to run the API **without Docker**, follow these steps:
 
 ### ** Install dependencies**
@@ -19,7 +19,7 @@ python API.py
 ```sh
 curl -X POST http://127.0.0.1:5000/transform -H "Content-Type: application/json" -d '{"text": "hello"}'
 ```
-## 📌 **How to Run the API with Docker**
+## **How to Run the API with Docker**
 If you prefer running the API **inside Docker**, follow these steps:
 
 ### **  Build the Docker Image**
@@ -42,7 +42,7 @@ docker run -d --name api-container --network test-network -p 5001:5000 my-api
 curl -X POST http://127.0.0.1:5001/transform -H "Content-Type: application/json" -d '{"text": "hello"}'
 ```
 
-## 📌 **How to Run tests in Docker**
+## **How to Run tests in Docker**
 to run tests **inside Docker**, use:
 
 ### **  Build the Test Image**
